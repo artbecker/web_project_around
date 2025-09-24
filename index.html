@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Around the US</title>
+    <meta
+      name="description"
+      content="Page where users can add, remove and like
+    pictures from the US"
+    />
+    <meta name="author" content="Arthur Klein Becker" />
+    <meta
+      name="keywords"
+      content="pictures, photography, united states, gallery"
+    />
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/logo.svg"
+          alt="Around the US logo"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__pic">
+            <img
+              class="profile__pic-image"
+              src="./images/profile-pic.jpg"
+              alt="profile picture"
+            />
+          </div>
+          <div class="profile__data">
+            <h1 class="profile__name">Jacques Costeau</h1>
+            <button class="edit-button"></button>
+            <p class="profile__description">Explorer</p>
+          </div>
+          <button class="add-button"></button>
+        </section>
+        <section class="gallery">
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/yosemite.jpg"
+              alt="yosemite valley picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Yosemite Valley</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/louise.jpg"
+              alt="lake louise picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Lake Louise</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/bald-mountains.jpg"
+              alt="bald mountains picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Bald Mountains</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/latemar.jpg"
+              alt="latemar picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Latemar</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/vanoise.jpg"
+              alt="vanoise national park picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Vanoise National Park</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/lago-di-braies.jpg"
+              alt="lago di braies picture"
+            />
+            <div class="card__footer">
+              <h2 class="card__title">Lago di Braies</h2>
+              <button class="like-button"></button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">&copy 2025 Around the U.S.</p>
+      </footer>
+      <div class="popup">
+        <div class="popup__container">
+          <form class="popup__form">
+            <h2 class="popup__title">Edit Profile</h2>
+            <input
+              class="popup__input"
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
+            <input
+              class="popup__input"
+              type="text"
+              name="about"
+              placeholder="About me"
+            />
+            <button class="popup__save-button">Save</button>
+          </form>
+          <button class="close-button"></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
