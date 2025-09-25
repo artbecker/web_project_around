@@ -21,3 +21,15 @@ body {
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
+
+@media screen and (max-width: 1024px) {
+  .page {
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .page {
+    padding: 20px;
+  }
+}

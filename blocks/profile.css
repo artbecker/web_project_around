@@ -1,7 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
-  gap: 30px;
+  justify-content: space-between;
 }
 
 .profile__pic {
@@ -19,7 +19,7 @@
 }
 
 .profile__data {
-  margin: auto 0;
+  margin: auto auto auto 30px;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
@@ -48,4 +48,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 544px) {
+  .profile {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .profile__data {
+    justify-items: center;
+    margin: auto;
+  }
 }
