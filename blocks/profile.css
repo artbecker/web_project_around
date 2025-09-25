@@ -9,6 +9,7 @@
   height: 120px;
   border-radius: 50%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .profile__pic-image {
@@ -20,7 +21,7 @@
 .profile__data {
   margin: auto 0;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
   align-items: baseline;
   column-gap: 18px;
@@ -34,10 +35,17 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__description {
   grid-column: 1 / -1;
   grid-row: 2;
   font-size: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
