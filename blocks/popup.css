@@ -60,3 +60,18 @@
 .popup__save-button:hover {
   opacity: 0.8;
 }
+
+.popup__close-button {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+}
+
+@media screen and (max-width: 544px) {
+  .popup__container {
+    margin: 5px;
+  }
+  .popup__close-button {
+    right: 10px;
+  }
+}
