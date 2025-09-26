@@ -2,9 +2,7 @@
   width: 28px;
   height: 28px;
   border: none;
-  position: absolute;
-  top: -30px;
-  right: -30px;
+
   background-image: url(../images/close-icon.svg);
   background-color: transparent;
   background-position: center;
