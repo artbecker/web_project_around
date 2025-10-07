@@ -1,6 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -10,6 +11,11 @@
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  cursor: pointer;
+}
+
+.card__image:hover {
+  filter: brightness(60%);
 }
 
 .card__footer {

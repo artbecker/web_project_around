@@ -2,10 +2,10 @@
 
 # Travel photography upload page.
 
-# For now, users can only change profile data.
+# Users can change profile data and add images to the gallery. Clicking on pictures from the gallery will enlarge them.
 
-# Javascript features added for opening and closing the Edit Profile popup, as well as submitting and changing the profile data.
+# Javascript features added for opening and closing form and picture popups, as well as submitting profile data and new pictures.
 
-# Nota ao revisor: fiz todas as alterações propostas, deixei apenas lang="en" pois fiz todo o projeto em inglês. Ajustei também a responsividade.
+# Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
 # https://artbecker.github.io/web_project_around/

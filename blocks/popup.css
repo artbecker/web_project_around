@@ -14,6 +14,17 @@
   display: flex;
 }
 
+.popup__image-container {
+  position: relative;
+}
+
+.popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  display: block;
+  margin: auto;
+}
+
 .popup__container {
   display: flex;
   position: relative;
