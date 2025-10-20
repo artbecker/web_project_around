@@ -125,6 +125,13 @@ popups.forEach((emptySpace) => {
   });
 });
 
+document.addEventListener("keydown", function (evt) {
+  const openedPopup = document.querySelector(".popup_open");
+  if (openedPopup && evt.key === "Escape") {
+    closePopup();
+  }
+});
+
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
 
 pictureFormElement.addEventListener("submit", handlePictureFormSubmit);
