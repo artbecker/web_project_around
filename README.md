@@ -6,6 +6,8 @@
 
 # Javascript features added for opening and closing form and picture popups, as well as submitting profile data and new pictures.
 
+# Javascript features added for form validation to profile data and new picture submissions.
+
 # Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
 # https://artbecker.github.io/web_project_around/
