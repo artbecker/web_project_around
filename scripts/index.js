@@ -47,12 +47,14 @@ function openProfilePopup() {
   profilePopup.classList.add("popup_open");
   nameInput.value = profileName.textContent;
   aboutInput.value = profileDescription.textContent;
+  resetValidation(profileFormElement);
 }
 
 function openAddPicturePopup() {
   addPicturePopup.classList.add("popup_open");
   titleInput.value = "";
   linkInput.value = "";
+  resetValidation(pictureFormElement);
 }
 
 function openPicturePopup(imageSrc, imageAlt, imageTitle) {
