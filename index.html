@@ -50,10 +50,11 @@
       </footer>
       <div class="popup popup_profile">
         <div class="popup__container">
-          <form class="popup__form popup__form_profile">
+          <form class="form popup__form_profile" novalidate>
             <h2 class="popup__title">Edit Profile</h2>
             <input
-              class="popup__input"
+              id="profile-name-input"
+              class="form__input"
               type="text"
               minlength="2"
               maxlength="40"
@@ -61,42 +62,48 @@
               name="name"
               placeholder="Name"
             />
+            <span class="form__input-error profile-name-input-error"></span>
             <input
-              class="popup__input"
-              minlength="1"
-              maxlength="40"
-              required
+              id="profile-about-input"
+              class="form__input"
               type="text"
+              minlength="2"
+              maxlength="200"
+              required
               name="about"
               placeholder="About me"
             />
-            <button class="popup__save-button">Save</button>
+            <span class="form__input-error profile-about-input-error"></span>
+            <button class="form__submit">Save</button>
           </form>
           <button class="close-button popup__close-button"></button>
         </div>
       </div>
       <div class="popup popup_add-picture">
         <div class="popup__container">
-          <form class="popup__form popup__form_picture">
+          <form class="form popup__form_picture" novalidate>
             <h2 class="popup__title">Add Picture</h2>
             <input
-              class="popup__input"
+              id="picture-title-input"
+              class="form__input"
               type="text"
               minlength="2"
-              maxlength="40"
+              maxlength="30"
               required
               name="title"
               placeholder="Title"
             />
+            <span class="form__input-error picture-title-input-error"></span>
             <input
-              class="popup__input"
-              minlength="1"
+              id="picture-url-input"
+              class="form__input"
               required
-              type="text"
+              type="url"
               name="url"
               placeholder="Image URL"
             />
-            <button class="popup__save-button">Add</button>
+            <span class="form__input-error picture-url-input-error"></span>
+            <button class="form__submit">Add</button>
           </form>
           <button class="close-button popup__close-button"></button>
         </div>
@@ -120,5 +127,6 @@
       </div>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

@@ -47,12 +47,14 @@ function openProfilePopup() {
   profilePopup.classList.add("popup_open");
   nameInput.value = profileName.textContent;
   aboutInput.value = profileDescription.textContent;
+  resetValidation(profileFormElement);
 }
 
 function openAddPicturePopup() {
   addPicturePopup.classList.add("popup_open");
   titleInput.value = "";
   linkInput.value = "";
+  resetValidation(pictureFormElement);
 }
 
 function openPicturePopup(imageSrc, imageAlt, imageTitle) {
@@ -123,6 +125,13 @@ popups.forEach((emptySpace) => {
       closePopup();
     }
   });
+});
+
+document.addEventListener("keydown", function (evt) {
+  const openedPopup = document.querySelector(".popup_open");
+  if (openedPopup && evt.key === "Escape") {
+    closePopup();
+  }
 });
 
 profileFormElement.addEventListener("submit", handleProfileFormSubmit);
