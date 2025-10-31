@@ -8,6 +8,8 @@
 
 # Javascript features added for form validation to profile data and new picture submissions.
 
+# Features all based in classes and modules
+
 # Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
 # https://artbecker.github.io/web_project_around/
