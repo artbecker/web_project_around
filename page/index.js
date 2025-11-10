@@ -1,12 +1,12 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 import {
   openProfilePopup,
   openAddPicturePopup,
   closePopup,
   handleProfileFormSubmit,
   handlePictureFormSubmit,
-} from "./utils.js";
+} from "../components/utils.js";
 
 const config = {
   inputSelector: ".form__input",
