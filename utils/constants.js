@@ -6,18 +6,12 @@ export const config = {
   errorClass: "form__input-error_active",
 };
 
-export const profileName = document.querySelector(".profile__name");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
 export const nameInput = document.querySelector("input[name='name']");
 export const aboutInput = document.querySelector("input[name='description']");
 export const titleInput = document.querySelector("input[name='title']");
 export const linkInput = document.querySelector("input[name='url']");
 export const editButton = document.querySelector(".edit-button");
 export const addButton = document.querySelector(".add-button");
-export const popups = document.querySelectorAll(".popup");
-export const closeButtons = document.querySelectorAll(".close-button");
 export const gallery = document.querySelector(".gallery");
 export const gallerySelector = ".gallery";
 export const profileFormElement = document.querySelector(
@@ -53,11 +47,3 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
-
-function handlePictureFormSubmit() {
-  const cardData = { name: titleInput.value, link: linkInput.value };
-  const cardInstance = new Card(cardData, "#card-template");
-  const cardElement = cardInstance.generateCard();
-  gallery.prepend(cardElement);
-  closePopup();
-}
