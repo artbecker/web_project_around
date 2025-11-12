@@ -1,9 +1,8 @@
-import { openPicturePopup } from "./utils.js";
-
-class Card {
-  constructor(data, cardSelector) {
+export default class Card {
+  constructor({ data, handleCardClick }, cardSelector) {
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
     this._cardSelector = cardSelector;
   }
 
@@ -23,10 +22,11 @@ class Card {
     this._element.remove();
   }
 
-  _handleImageClick(evt) {
-    const imageSrc = evt.target.src;
-    const imageAlt = evt.target.alt;
-    openPicturePopup(imageSrc, imageAlt, this._name);
+  _handleImageClick() {
+    this._handleCardClick({
+      name: this._name,
+      link: this._link,
+    });
   }
 
   _setEventListeners() {
@@ -56,5 +56,3 @@ class Card {
     return this._element;
   }
 }
-
-export default Card;

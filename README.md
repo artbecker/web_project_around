@@ -10,6 +10,8 @@
 
 # Features all based in classes and modules
 
+# All features now using OOP
+
 # Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
 # https://artbecker.github.io/web_project_around/

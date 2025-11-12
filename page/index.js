@@ -1,94 +1,95 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import {
-  openProfilePopup,
-  openAddPicturePopup,
-  closePopup,
-  handleProfileFormSubmit,
-  handlePictureFormSubmit,
-} from "../components/utils.js";
+  config,
+  profileFormElement,
+  pictureFormElement,
+  gallery,
+  editButton,
+  addButton,
+  titleInput,
+  linkInput,
+  initialCards,
+  gallerySelector,
+  nameInput,
+  aboutInput,
+} from "../utils/constants.js";
 
-const config = {
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__submit",
-  inactiveButtonClass: "form__submit_disabled",
-  inputErrorClass: "form__input_type_error",
-  errorClass: "form__input-error_active",
-};
-
-const editButton = document.querySelector(".edit-button");
-const addButton = document.querySelector(".add-button");
-const popups = document.querySelectorAll(".popup");
-const closeButtons = document.querySelectorAll(".close-button");
-const gallery = document.querySelector(".gallery");
-const profileFormElement = document.querySelector(".popup__form_profile");
-const pictureFormElement = document.querySelector(".popup__form_picture");
 const profileFormValidator = new FormValidator(config, profileFormElement);
 const pictureFormValidator = new FormValidator(config, pictureFormElement);
 
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
+const imagePopup = new PopupWithImage(".popup_picture");
+imagePopup.setEventListeners();
 
-initialCards.forEach((card) => {
-  const cardData = { name: card.name, link: card.link };
-  const cardInstance = new Card(cardData, "#card-template");
-  const cardElement = cardInstance.generateCard();
-  gallery.prepend(cardElement);
+const initialCardList = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(
+        {
+          data: item,
+          handleCardClick: (cardData) => {
+            imagePopup.openPopup(cardData.link, cardData.name, cardData.name);
+          },
+        },
+        "#card-template"
+      );
+      const cardElement = card.generateCard();
+      return cardElement;
+    },
+  },
+  gallerySelector
+);
+
+initialCardList.renderItems();
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  descriptionSelector: ".profile__description",
 });
+
+const profilePopup = new PopupWithForm(".popup_profile", (formData) => {
+  userInfo.setUserInfo(formData);
+  profilePopup.closePopup();
+});
+
+profilePopup.setEventListeners();
 
 editButton.addEventListener("click", () => {
-  openProfilePopup(profileFormValidator);
+  profilePopup.openPopup();
+  const userData = userInfo.getUserInfo();
+  nameInput.value = userData.name;
+  aboutInput.value = userData.description;
+  profileFormValidator.resetValidation();
 });
+
+const addPicturePopup = new PopupWithForm(".popup_add-picture", () => {
+  const cardData = { name: titleInput.value, link: linkInput.value };
+  const cardInstance = new Card(
+    {
+      data: cardData,
+      handleCardClick: (cardData) => {
+        imagePopup.openPopup(cardData.link, cardData.name, cardData.name);
+      },
+    },
+    "#card-template"
+  );
+  const cardElement = cardInstance.generateCard();
+  gallery.prepend(cardElement);
+  addPicturePopup.closePopup();
+});
+
+addPicturePopup.setEventListeners();
 
 addButton.addEventListener("click", () => {
-  openAddPicturePopup(pictureFormValidator);
-});
-
-closeButtons.forEach((button) => {
-  button.addEventListener("click", closePopup);
-});
-
-popups.forEach((emptySpace) => {
-  emptySpace.addEventListener("click", function (evt) {
-    if (evt.target === emptySpace) {
-      closePopup();
-    }
-  });
-});
-
-document.addEventListener("keydown", function (evt) {
-  const openedPopup = document.querySelector(".popup_open");
-  if (openedPopup && evt.key === "Escape") {
-    closePopup();
-  }
+  addPicturePopup.openPopup();
+  pictureFormValidator.resetValidation();
 });
 
 profileFormValidator.enableValidation();
 pictureFormValidator.enableValidation();
-
-profileFormElement.addEventListener("submit", handleProfileFormSubmit);
-pictureFormElement.addEventListener("submit", handlePictureFormSubmit);
