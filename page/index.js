@@ -25,19 +25,23 @@ const pictureFormValidator = new FormValidator(config, pictureFormElement);
 const imagePopup = new PopupWithImage(".popup_picture");
 imagePopup.setEventListeners();
 
-const initialCardList = new Section(
+function createCard(cardData) {
+  return new Card(
+    {
+      data: cardData,
+      handleCardClick: (cardData) => {
+        imagePopup.openPopup(cardData.link, cardData.name, cardData.name);
+      },
+    },
+    "#card-template"
+  );
+}
+
+const cardGallery = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = new Card(
-        {
-          data: item,
-          handleCardClick: (cardData) => {
-            imagePopup.openPopup(cardData.link, cardData.name, cardData.name);
-          },
-        },
-        "#card-template"
-      );
+      const card = createCard(item);
       const cardElement = card.generateCard();
       return cardElement;
     },
@@ -45,7 +49,7 @@ const initialCardList = new Section(
   gallerySelector
 );
 
-initialCardList.renderItems();
+cardGallery.renderItems();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -69,17 +73,9 @@ editButton.addEventListener("click", () => {
 
 const addPicturePopup = new PopupWithForm(".popup_add-picture", () => {
   const cardData = { name: titleInput.value, link: linkInput.value };
-  const cardInstance = new Card(
-    {
-      data: cardData,
-      handleCardClick: (cardData) => {
-        imagePopup.openPopup(cardData.link, cardData.name, cardData.name);
-      },
-    },
-    "#card-template"
-  );
+  const cardInstance = createCard(cardData);
   const cardElement = cardInstance.generateCard();
-  gallery.prepend(cardElement);
+  cardGallery.addItem(cardElement);
   addPicturePopup.closePopup();
 });
 
