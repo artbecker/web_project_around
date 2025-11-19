@@ -8,7 +8,6 @@ import {
   config,
   profileFormElement,
   pictureFormElement,
-  gallery,
   editButton,
   addButton,
   titleInput,

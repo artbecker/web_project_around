@@ -12,7 +12,6 @@ export const titleInput = document.querySelector("input[name='title']");
 export const linkInput = document.querySelector("input[name='url']");
 export const editButton = document.querySelector(".edit-button");
 export const addButton = document.querySelector(".add-button");
-export const gallery = document.querySelector(".gallery");
 export const gallerySelector = ".gallery";
 export const profileFormElement = document.querySelector(
   ".popup__form_profile"
