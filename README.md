@@ -12,7 +12,7 @@
 
 # All features now using OOP
 
-# All features dinamic features are now apudatet via API methods
+# All features dinamic features are now updated via API methods
 
 # Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
