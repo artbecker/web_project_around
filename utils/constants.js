@@ -7,11 +7,10 @@ export const config = {
 };
 
 export const nameInput = document.querySelector("input[name='name']");
-export const aboutInput = document.querySelector("input[name='description']");
-export const titleInput = document.querySelector("input[name='title']");
-export const linkInput = document.querySelector("input[name='url']");
+export const aboutInput = document.querySelector("input[name='about']");
 export const editButton = document.querySelector(".edit-button");
 export const addButton = document.querySelector(".add-button");
+export const avatar = document.querySelector(".profile__pic");
 export const gallerySelector = ".gallery";
 export const profileFormElement = document.querySelector(
   ".popup__form_profile"
@@ -19,6 +18,7 @@ export const profileFormElement = document.querySelector(
 export const pictureFormElement = document.querySelector(
   ".popup__form_picture"
 );
+export const avatarFormElement = document.querySelector(".popup__form_avatar");
 
 export const initialCards = [
   {
@@ -38,7 +38,7 @@ export const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
   },
   {
-    name: "Vanoise National Park ",
+    name: "Vanoise National Park",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
   },
   {
