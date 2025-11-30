@@ -16,4 +16,4 @@
 
 # Nota ao revisor: deixei lang="en" pois fiz todo o projeto em inglês.
 
-# https://artbecker.github.io/web_project_around/
+# https://artbecker.github.io/web_project_around/src
